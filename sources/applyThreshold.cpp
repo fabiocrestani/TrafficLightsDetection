@@ -22,10 +22,24 @@ void applyThreshold(Mat imgGray,
     
     // Adaptive threshold using a histogram function.
 
-	adaptiveThreshold(imgGray, imgGray, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 35, -15);
-	//adaptiveThreshold(imgGray, imgGray, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, -15);
+	adaptiveThreshold(
+        imgGray, 
+        imgGray, 
+        255, 
+        ADAPTIVE_THRESH_GAUSSIAN_C, 
+        THRESH_BINARY, 
+        35,
+        -15
+    );
+
+	/*adaptiveThreshold(imgGray, imgGray, 255, ADAPTIVE_THRESH_GAUSSIAN_C, 
+                        THRESH_BINARY, 7, -15); */
     
-	kernel = getStructuringElement(MORPH_ELLIPSE, Size(morph_size,morph_size), Point(-1,-1));
+	kernel = getStructuringElement(
+                MORPH_ELLIPSE, 
+                Size(morph_size,morph_size), 
+                Point(-1,-1)
+            );
 	
     if (enable_dilate) {
         dilate(imgGray, imgGray, kernel);

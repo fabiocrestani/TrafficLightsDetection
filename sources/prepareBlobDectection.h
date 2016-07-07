@@ -10,4 +10,4 @@ void prepareBlobDetection(Mat &img,
                           Mat &originalPreview,
                           size_t file_idx,
                           vector<myPoints> *points,
-													bool isROITracking);
+						  bool isROITracking);

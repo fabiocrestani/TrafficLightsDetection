@@ -35,7 +35,7 @@ void prepareBlobDetection(
 	Mat red_filtered;
 	Mat green_filtered;
 	Mat yellow_filtered;
-	// ------------------------------------------------------------------------
+	// -------------------------------------------------------------------------
     
     // Extract cadidate red pixels based on the HUE scale.
 	inRange(imgHSV, 
@@ -65,20 +65,35 @@ void prepareBlobDetection(
     // Resize
     #ifdef RESIZE_BLOB_DETECTION
     	if (!isROITracking)
-    		resize(red_filtered, red_filtered, Size(), RESIZE_SCALE, RESIZE_SCALE);
+    		resize(
+    			red_filtered, 
+    			red_filtered, 
+    			Size(), 
+    			RESIZE_SCALE, 
+    			RESIZE_SCALE
+    		);
     #endif
 
 	// Detect red blobs
-	applyBlobDetection((int)file_idx, red_filtered, points, originalPreview, img, RED_FLAG, isROITracking);
+	applyBlobDetection(
+		(int)file_idx, 
+		red_filtered, 
+		points, 
+		originalPreview, 
+		img, 
+		RED_FLAG, 
+		isROITracking
+	);
 
     // 
-	// Green hue range --------------------------------------------------------
+	// Green hue range ---------------------------------------------------------
 	inRange(imgHSV, Scalar(GRE_LOW, 100, 110),  Scalar(GRE_HIGH, 255, 255),
 					green_hue_rng);
     
     applyColorMask(green_filtered, imgGray, green_hue_rng);
     
-    //blur(green_filtered, green_filtered, Size(AFTER_GREEN_COLOR_FILTER_BLUR, AFTER_GREEN_COLOR_FILTER_BLUR), Point(0, -1));
+    /*blur(green_filtered, green_filtered, Size(AFTER_GREEN_COLOR_FILTER_BLUR, 
+    AFTER_GREEN_COLOR_FILTER_BLUR), Point(0, -1));*/
     
 	#ifdef DEBUG_WINDOWS
 	    namedWindow("Inside Prepare Blob Detector", WINDOW_AUTOSIZE);
@@ -88,7 +103,13 @@ void prepareBlobDetection(
 	// Resize
 	#ifdef RESIZE_BLOB_DETECTION
 	    if (!isROITracking)
-    		resize(green_filtered, green_filtered, Size(), RESIZE_SCALE, RESIZE_SCALE);
+    		resize(
+    			green_filtered, 
+    			green_filtered, 
+    			Size(), 
+    			RESIZE_SCALE, 
+    			RESIZE_SCALE
+    		);
     	
     	#ifdef DEBUG_WINDOWS_BLOB_DETECTOR
     		imshow("green resized", green_filtered);
@@ -96,12 +117,25 @@ void prepareBlobDetection(
     #endif
 
 	// Detect green blobs
-	applyBlobDetection((int)file_idx, green_filtered, points, originalPreview, img, GRE_FLAG, isROITracking);
+	applyBlobDetection(
+		(int)file_idx, 
+		green_filtered, 
+		points, 
+		originalPreview, 
+		img, 
+		GRE_FLAG, 
+		isROITracking
+	);
 	
 
 	//
-	// Yellow hue range -------------------------------------------------------
-	inRange(imgHSV, Scalar(YEL_LOW, 100, 110), Scalar(YEL_HIGH, 255, 255), yellow_hue_rng);
+	// Yellow hue range --------------------------------------------------------
+	inRange(
+		imgHSV, 
+		Scalar(YEL_LOW, 100, 110), 
+		Scalar(YEL_HIGH, 255, 255), 
+		yellow_hue_rng
+	);
     
 	// Apply yellow mask
 	applyColorMask(yellow_filtered, imgGray, yellow_hue_rng);
@@ -109,9 +143,23 @@ void prepareBlobDetection(
 	// Resize
 	#ifdef RESIZE_BLOB_DETECTION
 		if (!isROITracking)
-    		resize(yellow_filtered, yellow_filtered, Size(), RESIZE_SCALE, RESIZE_SCALE);
+    		resize(
+    			yellow_filtered, 
+    			yellow_filtered, 
+    			Size(), 
+    			RESIZE_SCALE, 
+    			RESIZE_SCALE
+    		);
     #endif
     
 	// Detect yellow blobs
-	applyBlobDetection((int)file_idx, yellow_filtered, points, originalPreview, img, YEL_FLAG, isROITracking);
+	applyBlobDetection(
+		(int)file_idx, 
+		yellow_filtered, 
+		points, 
+		originalPreview, 
+		img, 
+		YEL_FLAG, 
+		isROITracking
+	);
 }

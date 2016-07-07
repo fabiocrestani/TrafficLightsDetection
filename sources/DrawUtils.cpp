@@ -27,7 +27,12 @@ void drawSemaphoreHUD(Mat image, vector<Semaphore> semaphores) {
     int x, y;
     
     // Draw background shape.
-    rectangle(image, Rect(0, baseY, image.cols, viewHeight), Scalar(194, 192, 178), CV_FILLED);
+    rectangle(
+        image, 
+        Rect(0, baseY, image.cols, viewHeight), 
+        Scalar(194, 192, 178), 
+        CV_FILLED
+    );
     
     // Draw semaphores.
     
@@ -51,13 +56,19 @@ void drawSemaphoreHUD(Mat image, vector<Semaphore> semaphores) {
         }
         
         // Draw content based on orientation.
-        if (semaphore.orientation == OrientationUnknow || semaphore.orientation == OrientationPotrait) {
+        if (semaphore.orientation == OrientationUnknow || 
+            semaphore.orientation == OrientationPotrait) {
             
             x = semaphore.x-(semaphoreWidth/2);
             y = baseY+((viewHeight-semaphoreHeight)/2);
             
             // Draw semaphore shape.
-            rectangle(image, Rect(x, y, semaphoreWidth, semaphoreHeight), semaphoreColor, CV_FILLED);
+            rectangle(
+                image, 
+                Rect(x, y, semaphoreWidth, semaphoreHeight), 
+                semaphoreColor, 
+                CV_FILLED
+            );
             
             // Draw lights.
             x += semaphoreWidth/2;
@@ -74,7 +85,12 @@ void drawSemaphoreHUD(Mat image, vector<Semaphore> semaphores) {
             y = baseY+((viewHeight-semaphoreWidth)/2);
             
             // Draw semaphore shape.
-            rectangle(image, Rect(x, y, semaphoreHeight, semaphoreWidth), semaphoreColor, CV_FILLED);
+            rectangle(
+                image, 
+                Rect(x, y, semaphoreHeight, semaphoreWidth), 
+                semaphoreColor, 
+                CV_FILLED
+            );
             
             // Draw lights.
             x += (semaphoreHeight/2)-(lightRadius*2)-lightOffset;
@@ -91,7 +107,11 @@ void drawSemaphoreHUD(Mat image, vector<Semaphore> semaphores) {
     
 }
 
-void drawSemaphoreHUD(Mat image, Color highlightedColor, Orientation semaphoreOrientation, float confidence) {
+void drawSemaphoreHUD (
+    Mat image, 
+    Color highlightedColor, 
+    Orientation semaphoreOrientation, 
+    float confidence) {
     
     Scalar red, yellow, green;
     
@@ -130,10 +150,24 @@ void drawSemaphoreHUD(Mat image, Color highlightedColor, Orientation semaphoreOr
     }
     
     // Draw background view.
-    rectangle(image, Rect(0, baseY, image.cols, viewHeight), Scalar(194, 192, 178), CV_FILLED);
+    rectangle(
+        image, 
+        Rect(0, baseY, image.cols, viewHeight), 
+        Scalar(194, 192, 178), 
+        CV_FILLED
+    );
     
     // Draw confidence label on the left.
-    putText(image, message, cvPoint(30, baseY+(viewHeight/2)+10), CV_FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(0, 0, 0), 1, CV_AA);
+    putText(
+        image, 
+        message, 
+        cvPoint(30, baseY+(viewHeight/2)+10), 
+        CV_FONT_HERSHEY_COMPLEX_SMALL, 
+        0.8, 
+        cvScalar(0, 0, 0), 
+        1, 
+        CV_AA
+    );
     
     // Draw content based on orientation.
     if (semaphoreOrientation == OrientationPotrait) {
@@ -142,7 +176,12 @@ void drawSemaphoreHUD(Mat image, Color highlightedColor, Orientation semaphoreOr
         y = baseY+((viewHeight-semaphoreHeight)/2);
         
         // Draw semaphore shape.
-        rectangle(image, Rect(x, y, semaphoreWidth, semaphoreHeight), semaphoreColor, CV_FILLED);
+        rectangle(
+            image, 
+            Rect(x, y, semaphoreWidth, semaphoreHeight), 
+            semaphoreColor, 
+            CV_FILLED
+        );
         
         // Draw lights.
         x += semaphoreWidth/2;
@@ -159,7 +198,12 @@ void drawSemaphoreHUD(Mat image, Color highlightedColor, Orientation semaphoreOr
         y = baseY+((viewHeight-semaphoreWidth)/2);
         
         // Draw semaphore shape.
-        rectangle(image, Rect(x, y, semaphoreHeight, semaphoreWidth), semaphoreColor, CV_FILLED);
+        rectangle(
+            image, 
+            Rect(x, y, semaphoreHeight, semaphoreWidth), 
+            semaphoreColor, 
+            CV_FILLED
+        );
         
         // Draw lights.
         x += (semaphoreHeight/2)-(lightRadius*2)-lightOffset;

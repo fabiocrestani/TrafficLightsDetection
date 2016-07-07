@@ -27,7 +27,8 @@ float calcHistogram(Mat ROIGray, String orientation) {
   Mat b_hist, g_hist, r_hist;
 
   /// Compute the histograms:
-  calcHist( &ROIGray, 1, 0, Mat(), b_hist, 1, &histSize, &histRange, uniform, accumulate );
+  calcHist(&ROIGray, 1, 0, Mat(), b_hist, 1, &histSize, &histRange, 
+  			uniform, accumulate);
 
   // Draw the histograms for B, G and R
   int hist_w = 512; 
@@ -48,30 +49,32 @@ float calcHistogram(Mat ROIGray, String orientation) {
   /// Draw for each channel
   for( int j = 1; j < histSize; j++ ) {
   
-  #ifdef SHOW_HISTOGRAM	
-  	if (j < histMaxROIBin)
-      line( histImage, Point( bin_w*(j-1), hist_h - cvRound(b_hist.at<float>(j-1)) ) ,
-                       Point( bin_w*(j), hist_h - cvRound(b_hist.at<float>(j)) ),
-                       Scalar( 255, 0, 0), 2, 8, 0  );
-    else
-  		line( histImage, Point( bin_w*(j-1), hist_h - cvRound(b_hist.at<float>(j-1)) ) ,
-                       Point( bin_w*(j), hist_h - cvRound(b_hist.at<float>(j)) ),
-                       Scalar( 0, 255, 0), 2, 8, 0  );
-  #endif                 
+	  #ifdef SHOW_HISTOGRAM	
+	  	if (j < histMaxROIBin)
+			line(histImage, 
+				 Point( bin_w*(j-1), hist_h - cvRound(b_hist.at<float>(j-1)) ),
+			     Point( bin_w*(j), hist_h - cvRound(b_hist.at<float>(j)) ),
+			     Scalar( 255, 0, 0), 2, 8, 0  
+			);
+	    else
+	  		line(histImage, 
+	  			 Point( bin_w*(j-1), hist_h - cvRound(b_hist.at<float>(j-1)) ),
+	             Point( bin_w*(j), hist_h - cvRound(b_hist.at<float>(j)) ),
+	             Scalar( 0, 255, 0), 2, 8, 0 
+	        );
+	  #endif                 
 
     	verticalHistCount += cvRound(b_hist.at<float>(j));
-    	if (j < histMaxROIBin) verticalROIHistCount += cvRound(b_hist.at<float>(j));
+
+    	if (j < histMaxROIBin) 
+    		verticalROIHistCount += cvRound(b_hist.at<float>(j));
 
    }
 
   #ifdef SHOW_HISTOGRAM 
-    // Display
     namedWindow(orientation, CV_WINDOW_AUTOSIZE);
     imshow(orientation, histImage);
   #endif
 
-  //waitKey(0);
-
   return verticalROIHistCount / verticalHistCount;
-
 }

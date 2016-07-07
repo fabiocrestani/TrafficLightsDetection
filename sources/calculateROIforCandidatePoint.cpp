@@ -21,10 +21,10 @@ Rect calculateROIforCandidatePoint(myPoints point, Size imageSize) {
     x1 = (x1 < 0 ? 0 : x1);
     y1 = MIN(y1, y2);
     y1 = (y1 < 0 ? 0 : y1);
-    width = abs(x1-x2);
-    width = ( (x1+width) >=  imageSize.width ? (imageSize.width-x1) : width);
+    width  = abs(x1-x2);
+    width  = ((x1+width) >=  imageSize.width ? (imageSize.width-x1) : width);
     height = abs(y1-y2);
-    height = ( (y1+height) >=  imageSize.height ? (imageSize.height-y1) : height);
+    height = ((y1+height) >= imageSize.height ? (imageSize.height-y1) : height);
     
     return Rect(x1, y1, width, height);
     

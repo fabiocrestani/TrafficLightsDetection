@@ -15,9 +15,15 @@ using namespace cv;
 
 */
 
-void extractROI(const Mat input, Mat &ROI, myPoints &mypoint, int orientation, int colorFlag) {
+void extractROI(
+	const Mat input, 
+	Mat &ROI, 
+	myPoints &mypoint, 
+	int orientation, 
+	int colorFlag
+) {
 
-// VERTICAL BOUNDING BOX --------------------------------------------------
+// VERTICAL BOUNDING BOX -------------------------------------------------------
 if (orientation == VERTICAL) {
 
 	int BB_SIZE = ROI_BB_SIZE_MULTIPLIER*mypoint.area;
@@ -70,7 +76,13 @@ if (orientation == VERTICAL) {
 		ROIWidth  = imgWidth - verticalp1.x;
 	if (verticalp1.y + ROIHeight > imgHeight)
 		ROIHeight = imgHeight - verticalp1.y;
-	Rect ROIverticalregion(verticalp1.x+1, verticalp1.y+1, ROIWidth-1, ROIHeight-1);
+
+	Rect ROIverticalregion(
+			verticalp1.x+1, 
+			verticalp1.y+1, 
+			ROIWidth-1, 
+			ROIHeight-1
+		);
 
 	// Crops
 	Mat verticalROI = input(ROIverticalregion);

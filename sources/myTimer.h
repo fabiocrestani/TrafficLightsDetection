@@ -1,14 +1,5 @@
 #pragma once
 
-/*
-void _startTimer(myTimerHandler *timerObj);
-
-void _stopTimer(myTimerHandler *timerObj);
-
-double _computeTime(myTimerHandler timerObj, String label, 
-	                std::ofstream& file);
-*/
-
 #include "myTimerList.h"
 
 /*

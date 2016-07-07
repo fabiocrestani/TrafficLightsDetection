@@ -20,7 +20,7 @@ size_t applyBlobDetection(int file_idx,
                           Mat original,
                           Mat originalPreview,
                           int colorFlag,
-													bool isROITracking){
+                          bool isROITracking){
       
     size_t i;
       
@@ -76,25 +76,39 @@ size_t applyBlobDetection(int file_idx,
         
 		// Calculate orientation and differenciate between RED and YELLOW
 		if (colorFlag == GRE_FLAG || colorFlag == RED_FLAG) {
-			mypoint.orientation =  calculateOrientation(mypoint, original, colorFlag);
+			mypoint.orientation =  calculateOrientation(
+                                        mypoint, 
+                                        original, 
+                                        colorFlag
+                                    );
 		}else{
-			mypoint.orientation =  calculateOrientationYellow(mypoint, original);
+			mypoint.orientation =  calculateOrientationYellow(
+                                        mypoint, 
+                                        original
+                                    );
 		}
         
 		if(mypoint.color == GRE_FLAG) {
             mypoint.boundingBoxColor = Scalar(0, 255, 0);
-        }else if(mypoint.color == YEL_FLAG) {
+        } else if (mypoint.color == YEL_FLAG) {
             mypoint.boundingBoxColor = Scalar(0, 255, 255);
-        }else{
+        } else {
             mypoint.boundingBoxColor = Scalar(0, 0, 255);
         }
         
-        rectangle(originalPreview, mypoint.boundingBoxP1, mypoint.boundingBoxP2, mypoint.boundingBoxColor);
+        rectangle(
+            originalPreview, 
+            mypoint.boundingBoxP1, 
+            mypoint.boundingBoxP2, 
+            mypoint.boundingBoxColor
+        );
 
-		rectangle(originalPreview,
-                  Point(mypoint.boundingBoxP1.x-1, mypoint.boundingBoxP1.y-1),
-                  Point(mypoint.boundingBoxP2.x-1, mypoint.boundingBoxP2.y-1),
-                  Scalar(0, 0, 0));
+		rectangle(
+            originalPreview,
+            Point(mypoint.boundingBoxP1.x-1, mypoint.boundingBoxP1.y-1),
+            Point(mypoint.boundingBoxP2.x-1, mypoint.boundingBoxP2.y-1),
+            Scalar(0, 0, 0)
+        );
 
 		mypoint.tracking_point = true;
         points->push_back(mypoint);
@@ -104,6 +118,6 @@ size_t applyBlobDetection(int file_idx,
 	return keypoints.size();
     
 }								
-// ----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 
