@@ -1,0 +1,146 @@
+\hypertarget{classmyTimer}{\section{my\-Timer Class Reference}
+\label{classmyTimer}\index{my\-Timer@{my\-Timer}}
+}
+
+
+Timer class for performance evaluation.  
+
+
+
+
+{\ttfamily \#include $<$my\-Timer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmyTimer_aa2a86aa5e6cba6148bf4bf99c368d93c}{my\-Timer} ()
+\item 
+void \hyperlink{classmyTimer_ace0154f83f62150b7ff0a056599aa95d}{start\-Timer} ()
+\item 
+void \hyperlink{classmyTimer_a659c08ad5284b7dd7053e307dab6b1c7}{start\-Timer} (String l)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classmyTimer_a659c08ad5284b7dd7053e307dab6b1c7}{start\-Timer(\-String l)} Use this function to start a timer; Overloaded method to get a String argument. \end{DoxyCompactList}\item 
+void \hyperlink{classmyTimer_ae785e8e093301952ff4c0775aeccbddc}{stop\-Timer} ()
+\item 
+double \hyperlink{classmyTimer_a233683b99e90c228249d4601687c9b76}{compute\-Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classmyTimer_a64f5e038c85c0acf2bc833cf72bf397b}{finish\-Timers} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer class for performance evaluation. 
+
+Usage\-: \par
+\par
+ {\ttfamily  \hyperlink{classmyTimer}{my\-Timer} timer; \par
+ timer.\-start\-Timer(\char`\"{}name\-\_\-of\-\_\-a\-\_\-particular\-\_\-step\char`\"{}); \par
+ foo(); \par
+ timer.\-stop\-Timer(); \par
+ ... \par
+ timer.\-compute\-Time(); \par
+ timer.\-finish\-Timers(); \par
+ } 
+
+Definition at line 30 of file my\-Timer.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmyTimer_aa2a86aa5e6cba6148bf4bf99c368d93c}{\index{my\-Timer@{my\-Timer}!my\-Timer@{my\-Timer}}
+\index{my\-Timer@{my\-Timer}!myTimer@{my\-Timer}}
+\subsubsection[{my\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}my\-Timer\-::my\-Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmyTimer_aa2a86aa5e6cba6148bf4bf99c368d93c}
+\hyperlink{classmyTimer_aa2a86aa5e6cba6148bf4bf99c368d93c}{my\-Timer()} (constructor). Sets elapsed\-Timer to zero. 
+
+Definition at line 39 of file my\-Timer.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmyTimer_a233683b99e90c228249d4601687c9b76}{\index{my\-Timer@{my\-Timer}!compute\-Time@{compute\-Time}}
+\index{compute\-Time@{compute\-Time}!myTimer@{my\-Timer}}
+\subsubsection[{compute\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double my\-Timer\-::compute\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmyTimer_a233683b99e90c228249d4601687c9b76}
+Subtracts t1 from t2 and computes the elapsed time between the timestamps. Also, puts the result into the timer\-List.
+
+\hyperlink{classmyTimer_a233683b99e90c228249d4601687c9b76}{compute\-Time()} Computes the elapsed time. \begin{DoxyReturn}{Returns}
+\-: Returns a double with the elapsed time in miliseconds. 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file my\-Timer.\-cpp.
+
+\hypertarget{classmyTimer_a64f5e038c85c0acf2bc833cf72bf397b}{\index{my\-Timer@{my\-Timer}!finish\-Timers@{finish\-Timers}}
+\index{finish\-Timers@{finish\-Timers}!myTimer@{my\-Timer}}
+\subsubsection[{finish\-Timers}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Timer\-::finish\-Timers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmyTimer_a64f5e038c85c0acf2bc833cf72bf397b}
+Stores the timer\-List into a csv file.
+
+\hyperlink{classmyTimer_a64f5e038c85c0acf2bc833cf72bf397b}{finish\-Timers()} Stores the timer\-List into a csv file. 
+
+Definition at line 113 of file my\-Timer.\-cpp.
+
+\hypertarget{classmyTimer_ace0154f83f62150b7ff0a056599aa95d}{\index{my\-Timer@{my\-Timer}!start\-Timer@{start\-Timer}}
+\index{start\-Timer@{start\-Timer}!myTimer@{my\-Timer}}
+\subsubsection[{start\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Timer\-::start\-Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmyTimer_ace0154f83f62150b7ff0a056599aa95d}
+t1 gets the early timestamp.
+
+\hyperlink{classmyTimer_ace0154f83f62150b7ff0a056599aa95d}{start\-Timer()} Use this function to start a timer. 
+
+Definition at line 48 of file my\-Timer.\-cpp.
+
+\hypertarget{classmyTimer_a659c08ad5284b7dd7053e307dab6b1c7}{\index{my\-Timer@{my\-Timer}!start\-Timer@{start\-Timer}}
+\index{start\-Timer@{start\-Timer}!myTimer@{my\-Timer}}
+\subsubsection[{start\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Timer\-::start\-Timer (
+\begin{DoxyParamCaption}
+\item[{String}]{l}
+\end{DoxyParamCaption}
+)}}\label{classmyTimer_a659c08ad5284b7dd7053e307dab6b1c7}
+
+
+\hyperlink{classmyTimer_a659c08ad5284b7dd7053e307dab6b1c7}{start\-Timer(\-String l)} Use this function to start a timer; Overloaded method to get a String argument. 
+
+t1 gets the early timestamp. With label. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & Label for timer identification. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file my\-Timer.\-cpp.
+
+\hypertarget{classmyTimer_ae785e8e093301952ff4c0775aeccbddc}{\index{my\-Timer@{my\-Timer}!stop\-Timer@{stop\-Timer}}
+\index{stop\-Timer@{stop\-Timer}!myTimer@{my\-Timer}}
+\subsubsection[{stop\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Timer\-::stop\-Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmyTimer_ae785e8e093301952ff4c0775aeccbddc}
+t2 gets the most recent timestamp. It also calls \hyperlink{classmyTimer_a233683b99e90c228249d4601687c9b76}{compute\-Time()}.
+
+\hyperlink{classmyTimer_ae785e8e093301952ff4c0775aeccbddc}{stop\-Timer()} Use this function to stop a timer. User comute\-Time to get the elapsed time. N\-O\-T\-E\-: \hyperlink{classmyTimer_ae785e8e093301952ff4c0775aeccbddc}{stop\-Timer()} already calls \hyperlink{classmyTimer_a233683b99e90c228249d4601687c9b76}{compute\-Time()}. 
+
+Definition at line 75 of file my\-Timer.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sources/\hyperlink{myTimer_8h}{my\-Timer.\-h}\item 
+sources/\hyperlink{myTimer_8cpp}{my\-Timer.\-cpp}\end{DoxyCompactItemize}

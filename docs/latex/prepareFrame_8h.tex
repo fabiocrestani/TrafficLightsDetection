@@ -1,0 +1,54 @@
+\hypertarget{prepareFrame_8h}{\section{sources/prepare\-Frame.h File Reference}
+\label{prepareFrame_8h}\index{sources/prepare\-Frame.\-h@{sources/prepare\-Frame.\-h}}
+}
+
+
+\hyperlink{prepareFrame_8h_adf9b72d2e711e61eb883b2ed2a1c6bfd}{prepare\-Frame()}  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{prepareFrame_8h_adf9b72d2e711e61eb883b2ed2a1c6bfd}{prepare\-Frame} (Mat \&image, Mat \&img, Mat \&img\-Gray, Mat \&img\-H\-S\-V, double height\-Factor, bool crop)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{prepareFrame_8h_adf9b72d2e711e61eb883b2ed2a1c6bfd}{prepare\-Frame()} 
+
+Definition in file \hyperlink{prepareFrame_8h_source}{prepare\-Frame.\-h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{prepareFrame_8h_adf9b72d2e711e61eb883b2ed2a1c6bfd}{\index{prepare\-Frame.\-h@{prepare\-Frame.\-h}!prepare\-Frame@{prepare\-Frame}}
+\index{prepare\-Frame@{prepare\-Frame}!prepareFrame.h@{prepare\-Frame.\-h}}
+\subsubsection[{prepare\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}void prepare\-Frame (
+\begin{DoxyParamCaption}
+\item[{Mat \&}]{image, }
+\item[{Mat \&}]{img, }
+\item[{Mat \&}]{img\-Gray, }
+\item[{Mat \&}]{img\-H\-S\-V, }
+\item[{double}]{height\-Factor, }
+\item[{bool}]{crop}
+\end{DoxyParamCaption}
+)}}\label{prepareFrame_8h_adf9b72d2e711e61eb883b2ed2a1c6bfd}
+First step in the image processing. Crops the upper part of the image, applies a blue filter, increases the contrast, creates a copy of this result in grayscale and another copy converted to H\-S\-V colorspace. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em image} & Input image. \\
+\hline
+\mbox{\tt out}  & {\em img} & Processed image. \\
+\hline
+\mbox{\tt out}  & {\em img\-Gray} & Processed and grayscale-\/converted image. \\
+\hline
+\mbox{\tt out}  & {\em img\-H\-S\-V} & Processed and H\-S\-V-\/converted image. \\
+\hline
+\mbox{\tt in}  & {\em height\-Factor} & How much of the image will be cropped. \\
+\hline
+\mbox{\tt in}  & {\em crop} & If true, the image will be cropped. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file prepare\-Frame.\-cpp.
+
